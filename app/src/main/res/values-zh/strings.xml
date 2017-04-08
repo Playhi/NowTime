@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">当前时间</string>
+    <string name="text_NowTime">开始显示当前时间</string>
+    <string name="text_CancelNowTime">停止显示当前时间</string>
+</resources>

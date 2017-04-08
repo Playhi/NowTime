@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NowTime</string>
+    <string name="text_NowTime">StartShowNowTime</string>
+    <string name="text_CancelNowTime">StopShowNowTime</string>
+</resources>
