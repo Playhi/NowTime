@@ -24,16 +24,12 @@ import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
 
 
 public class FloatTimeService extends Service {
-    //定义浮动窗口布局
     LinearLayout mFloatLayout;
     WindowManager.LayoutParams wmParams;
-    //创建浮动窗口设置布局参数的对象
     WindowManager mWindowManager;
     static Button mFloatButton;
     TimeChangeReceiver mTimeChangeReceiver;
     IntentFilter mFilter;
-
-    //private static final String TAG = "FloatTimeService";
 
     static final Handler handler = new Handler(){
         @Override
@@ -48,8 +44,6 @@ public class FloatTimeService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        //Toast.makeText(FloatTimeService.this, "onCreate", Toast.LENGTH_LONG).show();
-        //Log.i(TAG, "onCreate");
         createFloatView();
     }
 
@@ -95,7 +89,7 @@ public class FloatTimeService extends Service {
             public boolean onTouch(View v, MotionEvent event) {
                 //getRawX是触摸位置相对于屏幕的坐标，getX是相对于按钮的坐标
                 wmParams.x = (int) event.getRawX() - mFloatButton.getMeasuredWidth() / 2;
-                //减25为状态栏的高度
+                //减25状态栏高度
                 wmParams.y = (int) event.getRawY() - mFloatButton.getMeasuredHeight() / 2 - 25;
                 //刷新
                 mWindowManager.updateViewLayout(mFloatLayout, wmParams);
@@ -113,13 +107,6 @@ public class FloatTimeService extends Service {
         mFilter.addAction(Intent.ACTION_TIME_CHANGED); //设置了系统时间的action
         mTimeChangeReceiver = new TimeChangeReceiver();
         registerReceiver(mTimeChangeReceiver, mFilter);
-
-//        mFloatButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
     }
 
     @Override
